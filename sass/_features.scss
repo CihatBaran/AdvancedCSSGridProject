@@ -8,6 +8,10 @@
   gap: 6rem;
 
   align-items: start;
+
+  @include respond(tab-port) {
+    grid-column: sidebar-end / col-end 7;
+  }
 }
 
 .feature {

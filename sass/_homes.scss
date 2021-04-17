@@ -5,6 +5,10 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   gap: 7rem;
+
+  @include respond(tab-port) {
+    grid-column: sidebar-end / col-end 7;
+  }
 }
 
 .home {

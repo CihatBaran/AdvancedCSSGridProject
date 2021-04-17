@@ -1,4 +1,99 @@
 .header {
   background: $color-grey-dark-1;
   grid-column: full-start / col-end 6;
+
+  background-image: linear-gradient(
+      rgba($color-secondary, 0.93),
+      rgba($color-secondary, 0.93)
+    ),
+    url('./../img/hero.jpeg');
+  background-size: cover;
+  background-position: center;
+  padding: 3rem 5rem 5rem 5rem;
+
+  display: grid;
+  grid-template-rows: 1fr min-content 6rem 1fr;
+  grid-template-columns: max-content;
+  justify-content: center;
+  row-gap: 1.5rem;
+
+  @include respond(tab-port) {
+    grid-column: sidebar-start / full-end;
+    grid-row: 2 / 3;
+  }
+
+  @include respond(phone-small) {
+    h3,
+    h1 {
+      justify-self: center;
+      width: 70%;
+    }
+  }
+
+  &__logo {
+    height: 3rem;
+    justify-self: center;
+    align-self: top;
+  }
+  &__seenon-text {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    column-gap: 1.5rem;
+    align-items: center;
+
+    font-size: 1.6rem;
+    color: $color-grey-light-2;
+
+    &::before,
+    &::after {
+      content: '';
+      height: 1px;
+      display: block;
+      background-color: currentColor;
+    }
+  }
+
+  &__btn {
+    justify-self: start;
+    align-self: center;
+
+    @include respond(phone-small) {
+      justify-self: center;
+    }
+  }
 }
+
+.seenon-logos {
+  display: flex;
+
+  & > *:not(:last-child) {
+    margin-right: 3rem;
+  }
+  img {
+    height: 3rem;
+    filter: brightness(70%);
+  }
+
+  @include respond(phone-small) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    padding: 0rem 4rem;
+    row-gap: 3rem;
+  }
+}
+
+// <header class="header">
+//       <img src="img/logo.png" alt="Logo" class="header__logo" />
+//       <h3 class="header-3">Your own home:</h3>
+//       <h1 class="header-1">The ultimate personal freedom</h1>
+//       <button class="btn">view our properties</button>
+//       <div class="header__seenon-text">Seen on</div>
+
+//       <div class="seenon-logos">
+//         <img src="img/logo-bbc.png" alt="BBC Logo" />
+//         <img src="img/logo-forbes.png" alt="Forbes Logo" />
+//         <img src="img/logo-techcrunch.png" alt="Techcrunch Logo" />
+//         <img src="img/logo-bi.png" alt="Business Insider Logo" />
+//       </div>
+//     </header>

@@ -5,12 +5,15 @@
         rgba($color-grey-light-1, 0.8),
         rgba($color-primary, 0.8)
       ),
-      url("./../img/back.jpg");
+      url('./../img/back.jpg');
     background-size: cover;
     background-position: top;
 
     grid-column: full-start / col-end 4;
-    grid-row: 3 / 4;
+
+    @include respond(phone) {
+      grid-column: sidebar-start / full-end;
+    }
 
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -33,13 +36,20 @@
     position: relative;
     z-index: 20;
     box-shadow: 0 1rem 5rem rba(#000, 1);
+
+    @include respond(phone) {
+      width: 100%;
+    }
   }
   &__content {
     grid-column: col-start 5 / -1;
-    grid-row: 3 / 4;
 
     padding: 6rem 8vw;
     align-self: center;
+
+    @include respond(phone) {
+      grid-column: full-start / full-end;
+    }
   }
 
   &__text {
